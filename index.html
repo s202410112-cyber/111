@@ -3,471 +3,1716 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regina Ip Lau Suk Yee | 葉劉淑儀官方門戶</title>
+    <title>Regina Ip Lau Suk Yee | 葉劉淑儀 Bilingual Official</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Noto+Sans+TC:wght@300;400;700;900&family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
 
     <style>
-        /* --- 核心品牌 CSS (擴展至數百行邏輯) --- */
+        /* ===== CSS ROOT & COLOR VARIABLES ===== */
         :root {
-            --p: #4B0082; /* Indigo Purple */
-            --g: #D4AF37; /* Metallic Gold */
-            --d: #111827; /* Deep Navy */
-            --l: #f9fafb; /* Light Gray */
+            --regina-purple: #4B0082;
+            --regina-purple-light: #6A0DAD;
+            --regina-purple-dark: #370050;
+            --regina-gold: #D4AF37;
+            --regina-gold-light: #E5C158;
+            --regina-gold-dark: #B8860B;
+            --deep-navy: #0f172a;
+            --deep-navy-light: #1a202c;
+            --soft-white: #f8fafc;
+            --light-gray: #e2e8f0;
+            --medium-gray: #94a3b8;
+            --dark-gray: #475569;
+            --accent-rose: #ec4899;
+            --accent-cyan: #06b6d4;
+            --accent-emerald: #10b981;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+            --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ===== GLOBAL STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body { 
-            font-family: 'Noto Sans TC', sans-serif; 
+            font-family: 'Noto Sans TC', 'Montserrat', sans-serif;
+            background-color: var(--soft-white);
+            color: var(--dark-gray);
+            line-height: 1.6;
             overflow-x: hidden;
-            background-color: var(--l);
         }
 
-        .serif { font-family: 'Noto Serif TC', serif; }
+        /* ===== TYPOGRAPHY ===== */
+        .serif-title { 
+            font-family: 'Playfair Display', serif; 
+            letter-spacing: -0.02em;
+        }
 
-        /* 滾動條美化 */
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: #eee; }
-        ::-webkit-scrollbar-thumb { background: var(--p); border-radius: 5px; }
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 900;
+            color: var(--deep-navy);
+        }
 
-        /* 動態背景與特效 */
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
+        p {
+            color: var(--dark-gray);
+            line-height: 1.8;
+        }
+
+        a {
+            color: var(--regina-purple);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--regina-gold);
+        }
+
+        /* ===== BUTTON STYLES ===== */
+        .btn {
+            padding: 12px 32px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            text-transform: uppercase;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--regina-gold);
+            color: white;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary:hover {
+            background: var(--regina-gold-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--regina-purple);
+            border: 2px solid var(--regina-purple);
+        }
+
+        .btn-secondary:hover {
+            background: var(--regina-purple);
+            color: white;
+            transform: translateX(4px);
+        }
+
+        .btn-outline {
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--regina-gold);
+            color: var(--regina-gold);
+        }
+
+        .btn-sm {
+            padding: 8px 20px;
+            font-size: 12px;
+        }
+
+        .btn-lg {
+            padding: 16px 48px;
+            font-size: 16px;
+        }
+
+        /* ===== NAVIGATION & HEADER ===== */
+        nav {
+            transition: all 0.3s ease;
+        }
+
+        nav a {
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--regina-gold);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Language Toggle Styling */
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-left: 2px solid rgba(75, 0, 130, 0.2);
+            padding-left: 24px;
+            margin-left: 24px;
+        }
+
+        .lang-btn {
+            cursor: pointer;
+            font-weight: 800;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .lang-active { 
+            color: var(--regina-gold); 
+            font-weight: 900; 
+            border-bottom: 2px solid var(--regina-gold);
+            padding-bottom: 2px;
+        }
+
+        /* ===== GLASS MORPHISM ===== */
+        .glass-header {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(75, 0, 130, 0.1);
+            box-shadow: var(--shadow-sm);
         }
 
-        .hero-title {
-            font-size: clamp(3rem, 10vw, 6rem);
-            line-height: 1.1;
-            letter-spacing: -0.05em;
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 32px;
         }
 
-        .gold-gradient-text {
-            background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+        /* ===== HERO SECTION ===== */
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(75, 0, 130, 0.85) 100%), 
+                        url('https://images.unsplash.com/photo-1555597673-b21d5c935865?q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(75, 0, 130, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* ===== BADGE & TAGS ===== */
+        .badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 8px 16px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            transition: all 0.3s ease;
+            background: var(--regina-gold);
+            color: white;
+        }
+
+        .badge:hover {
+            transform: scale(1.08);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .badge-outline {
+            background: transparent;
+            border: 2px solid var(--regina-gold);
+            color: var(--regina-gold);
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline-marker {
+            width: 18px; 
+            height: 18px; 
+            border: 4px solid white;
+            background: var(--regina-gold); 
+            border-radius: 50%;
+            position: absolute; 
+            left: -9px; 
+            top: 24px;
+            box-shadow: 0 0 0 6px var(--deep-navy);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-marker::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .timeline-item {
+            transition: all 0.4s ease;
+        }
+
+        .timeline-item:hover .timeline-marker {
+            transform: scale(1.4);
+            box-shadow: 0 0 0 8px var(--deep-navy), 0 0 20px var(--regina-gold);
+        }
+
+        .timeline-item:hover h3 {
+            color: var(--regina-gold);
+        }
+
+        /* ===== CARD STYLES ===== */
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--light-gray);
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-xl);
+            transform: translateY(-8px);
+        }
+
+        .policy-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-top: 5px solid var(--regina-purple);
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .policy-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(75, 0, 130, 0.05) 0%, rgba(212, 175, 55, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .policy-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px -12px rgba(75, 0, 130, 0.2);
+            border-top-color: var(--regina-gold);
+        }
+
+        .policy-card:hover::before {
+            opacity: 1;
+        }
+
+        .policy-card i {
+            transition: all 0.4s ease;
+            font-size: 40px;
+            background: linear-gradient(135deg, var(--regina-gold), var(--regina-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* 複雜的時間軸組件樣式 */
-        .timeline-container { position: relative; padding: 2rem 0; }
-        .timeline-line {
-            position: absolute; left: 50%; width: 2px; height: 100%;
-            background: linear-gradient(to bottom, transparent, var(--p), var(--g), transparent);
-            transform: translateX(-50%);
+        .policy-card:hover i {
+            transform: scale(1.2) rotate(10deg);
         }
 
-        .timeline-card {
-            width: 45%; position: relative; transition: 0.5s;
+        /* ===== STAT CARD ===== */
+        .stat-card {
+            text-align: center;
+            padding: 24px 16px;
+            border-right: 1px solid var(--light-gray);
+            transition: all 0.3s ease;
         }
 
-        .timeline-card:hover { transform: scale(1.03); }
-
-        .left-card { float: left; text-align: right; padding-right: 40px; }
-        .right-card { float: right; text-align: left; padding-left: 40px; margin-top: 50px; }
-
-        .timeline-dot {
-            position: absolute; left: 50%; transform: translateX(-50%);
-            width: 20px; height: 20px; background: var(--g); border: 4px solid var(--p);
-            border-radius: 50%; z-index: 10;
+        .stat-card:last-child {
+            border-right: none;
         }
 
-        /* 懸浮效果組件 */
-        .hover-lift { transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .hover-lift:hover { transform: translateY(-15px); }
+        .stat-card:hover {
+            background: var(--soft-white);
+            transform: scale(1.05);
+        }
 
-        /* 響應式微調 */
+        .stat-number {
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--regina-purple), var(--regina-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* ===== LANGUAGE VISIBILITY ===== */
+        [lang="en"] { display: none; }
+        body.lang-en [lang="zh"] { display: none; }
+        body.lang-en [lang="en"] { display: block; }
+
+        /* ===== TEXT EFFECTS ===== */
+        .bio-text { 
+            line-height: 2; 
+            letter-spacing: 0.02em;
+            color: var(--dark-gray);
+        }
+        
+        .gold-text {
+            background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--regina-purple), var(--regina-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ===== DECORATIVE ELEMENTS ===== */
+        .divider {
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--regina-gold), transparent);
+            border-radius: 2px;
+            margin: 24px 0;
+        }
+
+        .divider-center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .decorative-circle {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .decorative-circle.large {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.2), transparent);
+        }
+
+        .decorative-circle.medium {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(75, 0, 130, 0.15), transparent);
+        }
+
+        .decorative-circle.small {
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1), transparent);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            50% { box-shadow: 0 0 0 20px rgba(212, 175, 55, 0); }
+        }
+
+        @keyframes slide-in {
+            from { 
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fade-up {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .animate-slide-in {
+            animation: slide-in 0.6s ease-out;
+        }
+
+        .animate-fade-up {
+            animation: fade-up 0.8s ease-out;
+        }
+
+        .scroll-trigger {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .scroll-trigger.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== FORM STYLES ===== */
+        input, textarea, select {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(75, 0, 130, 0.2);
+            font-family: inherit;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background: white;
+            color: var(--dark-gray);
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--regina-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+            background: rgba(212, 175, 55, 0.02);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .dark-form input, .dark-form textarea {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .dark-form input::placeholder, .dark-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .dark-form input:focus, .dark-form textarea:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--regina-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+
+        /* ===== FOOTER STYLES ===== */
+        footer { 
+            background: var(--deep-navy); 
+            position: relative; 
+            overflow: hidden;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        footer::before {
+            content: "REGINA IP"; 
+            position: absolute; 
+            bottom: -20px; 
+            right: -10px;
+            font-size: 15rem; 
+            font-weight: 900; 
+            opacity: 0.03; 
+            color: white;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--regina-gold);
+            text-decoration: underline;
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--regina-gold);
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        /* ===== RESPONSIVE IMAGES ===== */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .img-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+        }
+
+        .img-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(75, 0, 130, 0.2), transparent);
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        /* ===== SECTION STYLES ===== */
+        section {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* About Section */
+        #about {
+            position: relative;
+        }
+
+        #about::before {
+            content: '';
+            position: absolute;
+            top: 100px;
+            right: -200px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.08), transparent);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        /* Milestones Section */
+        #milestones {
+            background: linear-gradient(180deg, var(--deep-navy) 0%, #1a2a4a 100%);
+            position: relative;
+        }
+
+        #milestones::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(75, 0, 130, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* Policy Section */
+        #policy {
+            position: relative;
+        }
+
+        #policy::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--light-gray), transparent);
+        }
+
+        /* ===== MOBILE RESPONSIVENESS ===== */
         @media (max-width: 768px) {
-            .timeline-line { left: 20px; }
-            .timeline-card { width: 90%; float: right; padding-left: 50px; text-align: left !important; }
-            .timeline-dot { left: 20px; }
-            .right-card { margin-top: 20px; }
+            .stat-card {
+                border-right: none;
+                border-bottom: 1px solid var(--light-gray);
+                padding: 20px 12px;
+            }
+
+            .stat-card:last-child {
+                border-bottom: none;
+            }
+
+            h1 { font-size: 32px; }
+            h2 { font-size: 28px; }
+            h3 { font-size: 20px; }
+
+            .btn { padding: 10px 24px; font-size: 12px; }
+            .btn-lg { padding: 14px 32px; }
+
+            nav a { font-size: 13px; }
+
+            .hero-bg {
+                background-attachment: scroll;
+            }
+
+            .policy-card {
+                padding: 20px;
+            }
+
+            input, textarea {
+                padding: 12px 14px;
+                font-size: 16px;
+            }
+
+            footer::before {
+                font-size: 8rem;
+            }
         }
 
-        /* 頁面分區裝飾 */
-        .section-curve {
-            position: absolute; top: -50px; width: 100%; height: 50px;
-            fill: var(--l);
+        @media (max-width: 480px) {
+            h1 { font-size: 28px; }
+            h2 { font-size: 22px; }
+            h3 { font-size: 18px; }
+
+            .lang-toggle {
+                border-left: none;
+                padding-left: 0;
+                margin-left: 0;
+                gap: 4px;
+            }
+
+            .stat-number { font-size: 42px; }
+            .btn { padding: 10px 16px; font-size: 11px; }
+
+            .divider { width: 80px; }
         }
 
-        /* 按鈕高級樣式 */
-        .btn-regina {
-            position: relative; overflow: hidden; z-index: 1;
-            transition: 0.4s; border-radius: 99px;
-        }
-        .btn-regina::before {
-            content: ''; position: absolute; top: 0; left: -100%;
-            width: 100%; height: 100%; background: var(--g);
-            transition: 0.4s; z-index: -1;
-        }
-        .btn-regina:hover::before { left: 0; }
+        /* ===== UTILITY CLASSES ===== */
+        .container { max-width: 1280px; margin: 0 auto; }
 
-        /* 1000行代碼的核心在於豐富的細節填充與 SVG 圖案 */
+        .glass { 
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+        }
+
+        .deep-shadow { box-shadow: var(--shadow-2xl); }
+        .light-shadow { box-shadow: var(--shadow-sm); }
+
+        .text-muted { color: var(--medium-gray); }
+        .text-accent { color: var(--regina-gold); }
+
+        .opacity-75 { opacity: 0.75; }
+        .opacity-50 { opacity: 0.5; }
+
+        .rounded-lg { border-radius: 12px; }
+        .rounded-xl { border-radius: 16px; }
+        .rounded-2xl { border-radius: 24px; }
+        .rounded-full { border-radius: 9999px; }
+
+        .gap-4 { gap: 16px; }
+        .gap-6 { gap: 24px; }
+        .gap-8 { gap: 32px; }
+
+        .mt-20 { margin-top: 80px; }
+        .mt-32 { margin-top: 128px; }
+        .mb-8 { margin-bottom: 32px; }
+
+        .px-8 { padding-left: 32px; padding-right: 32px; }
+        .py-20 { padding-top: 80px; padding-bottom: 80px; }
+        .py-32 { padding-top: 128px; padding-bottom: 128px; }
+
+        /* ===== ADVANCED HOVER EFFECTS ===== */
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-16px);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .hover-glow {
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .hover-glow::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--regina-gold), var(--regina-purple), var(--regina-gold));
+            border-radius: 20px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.4s ease;
+        }
+
+        .hover-glow:hover::before {
+            opacity: 0.5;
+            animation: glow-rotate 3s linear infinite;
+        }
+
+        @keyframes glow-rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hover-scale {
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .hover-scale:hover {
+            transform: scale(1.08);
+        }
+
+        .hover-blur {
+            transition: all 0.4s ease;
+        }
+
+        .hover-blur:hover {
+            background: rgba(0, 0, 0, 0.02);
+            border-color: var(--regina-purple);
+        }
+
+        /* ===== BADGE VARIANTS ===== */
+        .badge-primary {
+            background: var(--regina-purple);
+            color: white;
+        }
+
+        .badge-success {
+            background: var(--accent-emerald);
+            color: white;
+        }
+
+        .badge-warning {
+            background: #f59e0b;
+            color: white;
+        }
+
+        .badge-danger {
+            background: var(--accent-rose);
+            color: white;
+        }
+
+        /* ===== GRADIENT BACKGROUNDS ===== */
+        .gradient-bg-1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .gradient-bg-2 {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .gradient-bg-3 {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .gradient-bg-4 {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        /* ===== BORDER STYLES ===== */
+        .border-gold {
+            border-color: var(--regina-gold);
+            border-width: 2px;
+        }
+
+        .border-purple {
+            border-color: var(--regina-purple);
+            border-width: 2px;
+        }
+
+        .border-gradient {
+            position: relative;
+            background: white;
+            border: 1px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .border-gradient::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            background: linear-gradient(135deg, var(--regina-purple), var(--regina-gold));
+            border-radius: inherit;
+            z-index: -1;
+        }
+
+        /* ===== CONTACT ICON STYLES ===== */
+        .contact-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--regina-purple), var(--regina-gold));
+            color: white;
+            font-size: 28px;
+            flex-shrink: 0;
+            transition: all 0.4s ease;
+        }
+
+        .contact-icon:hover {
+            transform: rotate(-10deg) scale(1.1);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* ===== STAT ANIMATIONS ===== */
+        @keyframes count-up {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stat-item {
+            animation: count-up 0.8s ease-out;
+        }
+
+        .stat-item:nth-child(1) { animation-delay: 0.1s; }
+        .stat-item:nth-child(2) { animation-delay: 0.2s; }
+        .stat-item:nth-child(3) { animation-delay: 0.3s; }
+        .stat-item:nth-child(4) { animation-delay: 0.4s; }
+
+        /* ===== LINK HOVER EFFECTS ===== */
+        .link-hover-1 {
+            position: relative;
+            color: var(--regina-purple);
+        }
+
+        .link-hover-1::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--regina-gold);
+            transition: width 0.4s ease;
+        }
+
+        .link-hover-1:hover::after {
+            width: 100%;
+        }
+
+        /* ===== SCROLL ANIMATION ===== */
+        .fade-in-bottom {
+            animation: fade-in-bottom 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fade-in-bottom {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-bottom:nth-child(1) { animation-delay: 0.1s; }
+        .fade-in-bottom:nth-child(2) { animation-delay: 0.2s; }
+        .fade-in-bottom:nth-child(3) { animation-delay: 0.3s; }
+        .fade-in-bottom:nth-child(4) { animation-delay: 0.4s; }
+
+        /* ===== QUALITY TEXT ENHANCEMENTS ===== */
+        h1, h2, h3 {
+            letter-spacing: -0.03em;
+            font-weight: 900;
+            text-rendering: optimizeLegibility;
+        }
+
+        p, li {
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ===== ACCESSIBILITY ===== */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Focus styles for accessibility */
+        *:focus-visible {
+            outline: 3px solid var(--regina-gold);
+            outline-offset: 2px;
+        }
+
+        /* ===== LOADING ANIMATION ===== */
+        @keyframes shimmer {
+            0% { 
+                background-position: -1000px 0;
+            }
+            100% { 
+                background-position: 1000px 0;
+            }
+        }
+
+        .shimmer {
+            background: linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0) 0,
+                rgba(255, 255, 255, 0.3) 20%,
+                rgba(255, 255, 255, 0.5) 60%,
+                rgba(255, 255, 255, 0)
+            );
+            background-size: 1000px 100%;
+            animation: shimmer 2s infinite;
+        }
+
+        /* ===== PROGRESS BAR ===== */
+        .progress-bar {
+            height: 4px;
+            background: var(--light-gray);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--regina-purple), var(--regina-gold));
+            border-radius: 2px;
+            animation: progress 2s ease-in-out infinite;
+        }
+
+        @keyframes progress {
+            0% { width: 0%; }
+            50% { width: 100%; }
+            100% { width: 100%; }
+        }
+
+        /* ===== PARALLAX EFFECT ===== */
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* ===== TOOLTIP STYLES ===== */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 200px;
+            background-color: var(--deep-navy);
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            padding: 8px 12px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 12px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* ===== MODAL BACKDROP ===== */
+        .modal-backdrop {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        /* ===== SKELETON LOADER ===== */
+        .skeleton {
+            animation: skeleton-loading 1s linear infinite alternate;
+        }
+
+        @keyframes skeleton-loading {
+            0% {
+                background-color: rgba(0, 0, 0, 0.05);
+            }
+            100% {
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        /* ===== BREADCRUMB STYLES ===== */
+        .breadcrumb {
+            display: flex;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--medium-gray);
+        }
+
+        .breadcrumb a {
+            color: var(--regina-purple);
+            transition: all 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--regina-gold);
+        }
+
+        .breadcrumb span {
+            color: var(--medium-gray);
+        }
+
+        /* ===== LIST STYLES ===== */
+        .list-none {
+            list-style: none;
+        }
+
+        .list-check li::before {
+            content: '✓ ';
+            color: var(--regina-gold);
+            font-weight: 800;
+            margin-right: 12px;
+        }
+
+        /* ===== QUOTE STYLES ===== */
+        .quote {
+            border-left: 5px solid var(--regina-gold);
+            padding-left: 24px;
+            font-style: italic;
+            color: var(--medium-gray);
+            margin: 24px 0;
+            font-size: 18px;
+        }
+
+        .quote strong {
+            color: var(--dark-gray);
+            font-style: normal;
+            font-weight: 700;
+        }
+
+        /* ===== TABLE STYLES ===== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+        }
+
+        th {
+            background: var(--regina-purple);
+            color: white;
+            padding: 16px;
+            text-align: left;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        tr:hover {
+            background: var(--soft-white);
+        }
+
+        /* ===== CODE BLOCK STYLES ===== */
+        code {
+            background: var(--soft-white);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: var(--regina-purple);
+        }
+
+        pre {
+            background: var(--deep-navy);
+            color: #00ff00;
+            padding: 20px;
+            border-radius: 12px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            margin: 24px 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ===== DROPDOWN MENU ===== */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: var(--shadow-lg);
+            z-index: 1000;
+            border-radius: 12px;
+            overflow: hidden;
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown-content a {
+            color: var(--dark-gray);
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background: var(--soft-white);
+            color: var(--regina-gold);
+            padding-left: 24px;
+        }
+
+        /* ===== SMOOTH TRANSITIONS ===== */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        input, textarea, button, a {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ===== DARK MODE SUPPORT (OPTIONAL) ===== */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1a1a2e;
+                color: #e0e0e0;
+            }
+
+            .card, .policy-card {
+                background: #16213e;
+                border-color: rgba(212, 175, 55, 0.2);
+            }
+
+            input, textarea {
+                background: #0f3460;
+                border-color: rgba(212, 175, 55, 0.3);
+                color: #e0e0e0;
+            }
+        }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            nav, footer {
+                display: none;
+            }
+
+            body {
+                background: white;
+                color: black;
+            }
+
+            .hero-bg {
+                background: none;
+                color: black;
+            }
+
+            a {
+                color: var(--regina-purple);
+                text-decoration: underline;
+            }
+
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+
+            img {
+                max-width: 100%;
+            }
+        }
+
+        /* ===== ADDITIONAL RESPONSIVE TWEAKS ===== */
+        @media (max-width: 1024px) {
+            .grid-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            h1 { font-size: 48px; }
+            h2 { font-size: 36px; }
+
+            section {
+                padding: 60px 24px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            h1 { font-size: 36px; }
+            h2 { font-size: 28px; }
+            h3 { font-size: 20px; }
+
+            .badge { font-size: 10px; padding: 6px 12px; }
+            .btn { padding: 8px 16px; font-size: 12px; }
+
+            section {
+                padding: 40px 16px;
+            }
+
+            .deep-shadow { box-shadow: var(--shadow-md); }
+        }
+
+        /* ===== CUSTOM SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--soft-white);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--regina-purple);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--regina-gold);
+        }
+
+        /* Firefox scrollbar */
+        * {
+            scrollbar-color: var(--regina-purple) var(--soft-white);
+            scrollbar-width: thin;
+        }
+
+        /* ===== FINAL POLISH ===== */
+        .no-scroll {
+            overflow: hidden;
+        }
+
+        .pointer-none {
+            pointer-events: none;
+        }
+
+        .select-none {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .line-clamp-1 { 
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .line-clamp-2 { 
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .line-clamp-3 { 
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
     </style>
 </head>
-<body class="antialiased">
+<body class="lang-zh antialiased">
 
-    <nav id="topNav" class="fixed w-full z-[100] py-5 transition-all duration-500 glass-nav">
-        <div class="container mx-auto px-8 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <svg width="40" height="40" viewBox="0 0 100 100">
-                    <circle cx="50" cy="50" r="48" fill="none" stroke="#4B0082" stroke-width="2"/>
-                    <path d="M35 70 L35 30 L55 30 Q65 30 65 40 Q65 50 55 50 L35 50 L65 70" fill="none" stroke="#4B0082" stroke-width="5"/>
-                </svg>
-                <div class="leading-none">
-                    <span class="block text-2xl font-black text-indigo-900 tracking-tighter">REGINA IP</span>
-                    <span class="text-xs font-bold text-yellow-600 tracking-[0.3em] uppercase">Leadership & Vision</span>
+    <nav class="fixed w-full z-[100] glass-header py-4 px-8">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <div class="bg-indigo-900 text-white w-12 h-12 flex items-center justify-center font-black text-xl rounded-lg">R</div>
+                <div>
+                    <h1 class="text-xl font-black text-indigo-950 leading-tight">
+                        <span lang="zh">葉劉淑儀</span>
+                        <span lang="en">Regina Ip</span>
+                    </h1>
+                    <p class="text-[10px] tracking-[0.2em] font-bold text-gray-500 uppercase">Executive Council Convenor</p>
                 </div>
             </div>
-            
-            <div class="hidden lg:flex items-center space-x-10 text-sm font-bold uppercase tracking-widest text-indigo-950">
-                <a href="#about" class="hover:text-yellow-600 transition">關於葉太</a>
-                <a href="#milestones" class="hover:text-yellow-600 transition">從政里程碑</a>
-                <a href="#party" class="hover:text-yellow-600 transition">政黨與智庫</a>
-                <a href="#quote" class="hover:text-yellow-600 transition">觀點櫥窗</a>
-                <a href="#contact" class="bg-indigo-900 text-white px-8 py-3 rounded-full hover:shadow-xl transition btn-regina">與我聯絡</a>
-            </div>
 
-            <button class="lg:hidden text-indigo-900 text-2xl">
-                <i class="fas fa-bars-staggered"></i>
-            </button>
+            <div class="hidden lg:flex items-center gap-10 font-bold text-sm tracking-wide text-indigo-900">
+                <a href="#about" class="hover:text-amber-600 transition">
+                    <span lang="zh">關於我</span><span lang="en">ABOUT</span>
+                </a>
+                <a href="#milestones" class="hover:text-amber-600 transition">
+                    <span lang="zh">里程碑</span><span lang="en">EXPERIENCE</span>
+                </a>
+                <a href="#policy" class="hover:text-amber-600 transition">
+                    <span lang="zh">政策願景</span><span lang="en">VISION</span>
+                </a>
+                <button onclick="toggleLang()" class="flex items-center gap-2 border-l-2 pl-6 ml-4 text-xs">
+                    <span id="zh-btn" class="lang-active">中</span>
+                    <span class="text-gray-300">|</span>
+                    <span id="en-btn">EN</span>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <section id="hero" class="relative min-h-screen flex items-center bg-gray-900 overflow-hidden">
-        <div class="absolute inset-0 opacity-40">
-            <div class="absolute inset-0 bg-gradient-to-r from-indigo-950 via-transparent to-indigo-950"></div>
-        </div>
-
-        <div class="container mx-auto px-8 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-            <div class="animate__animated animate__fadeInLeft">
-                <h2 class="text-yellow-500 font-bold tracking-[0.5em] mb-4">SINCE 1975</h2>
-                <h1 class="hero-title font-black text-white leading-none mb-6">
-                    守護<span class="gold-gradient-text">法治</span><br>
-                    開創<span class="serif italic">繁榮</span>
-                </h1>
-                <p class="text-xl text-gray-300 mb-10 max-w-xl leading-relaxed">
-                    從政五十載，我見證了香港的風雲變幻。由公務員到立法會議員，從行政會議召集人到新民黨主席，我的初心從未改變：<br>
-                    <strong>以專業引領決策，以實幹回應民生。</strong>
+    <header class="hero-bg min-h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-8 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="animate__animated animate__fadeIn">
+                <div class="inline-block bg-amber-600 text-white text-[10px] font-black px-4 py-1 rounded-full mb-6 tracking-widest uppercase">
+                    <span lang="zh">服務香港五十載</span>
+                    <span lang="en">50 Years of Public Service</span>
+                </div>
+                <h2 class="text-white text-6xl lg:text-8xl font-black mb-8 leading-[1.1]">
+                    <span lang="zh">果斷<span class="gold-text">領航</span><br>與民同行</span>
+                    <span lang="en" class="serif-title italic">Leading with<br><span class="gold-text">Resolve</span></span>
+                </h2>
+                <p class="text-gray-300 text-lg md:text-xl mb-12 max-w-xl bio-text">
+                    <span lang="zh">身為行政會議召集人與新民黨主席，我深信繁榮源於法治，機會始於教育。讓我們以理性的力量，為香港下一個黃金時代鋪路。</span>
+                    <span lang="en">As Convenor of the Executive Council and Chair of the NPP, I believe prosperity stems from the rule of law and education. Let us pave the way for Hong Kong's next golden era with rational strength.</span>
                 </p>
-                <div class="flex flex-wrap gap-6">
-                    <a href="#milestones" class="px-12 py-5 bg-yellow-600 text-white font-black rounded-xl shadow-2xl hover:bg-yellow-500 transition-all">閱覽公職成就</a>
-                    <div class="flex items-center space-x-4 text-white">
-                        <span class="w-12 h-[1px] bg-yellow-600"></span>
-                        <span class="text-sm font-bold tracking-widest uppercase">Explore History</span>
-                    </div>
+                <div class="flex gap-4">
+                    <a href="#policy" class="bg-amber-600 text-white px-10 py-4 rounded-xl font-bold hover:bg-amber-500 transition shadow-2xl">
+                        <span lang="zh">查看政策</span><span lang="en">View Policies</span>
+                    </a>
+                    <a href="#contact" class="border border-white/30 text-white px-10 py-4 rounded-xl font-bold hover:bg-white/10 transition">
+                        <span lang="zh">聯絡我</span><span lang="en">Contact</span>
+                    </a>
                 </div>
             </div>
+        </div>
+    </header>
 
-            <div class="relative hidden lg:block animate__animated animate__zoomIn">
-                <div class="w-[500px] h-[600px] border-[20px] border-indigo-800 rounded-[100px] relative overflow-hidden transform rotate-3 shadow-2xl">
-                    <div class="absolute inset-0 bg-indigo-900 flex items-center justify-center text-indigo-300 text-center p-12">
-                        <p class="serif text-3xl">[ 此處建議放置：葉太穿著旗袍或專業套裝的形象照 ]</p>
-                    </div>
-                </div>
-                <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-yellow-600/20 rounded-full blur-3xl"></div>
+    <section class="py-20 bg-white relative -mt-20 rounded-t-[50px] z-10">
+        <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-4 gap-8">
+            <div class="text-center p-8 border-r border-gray-100 last:border-0">
+                <h3 class="text-4xl font-black text-indigo-900 mb-2">1st</h3>
+                <p class="text-xs font-bold text-gray-500 uppercase tracking-widest">
+                    <span lang="zh">首位女性紀律部隊首長</span>
+                    <span lang="en">1st Female Head of Disciplinary Force</span>
+                </p>
+            </div>
+            <div class="text-center p-8 border-r border-gray-100 last:border-0">
+                <h3 class="text-4xl font-black text-indigo-900 mb-2">2011</h3>
+                <p class="text-xs font-bold text-gray-500 uppercase tracking-widest">
+                    <span lang="zh">創立新民黨</span>
+                    <span lang="en">Founded New People's Party</span>
+                </p>
+            </div>
+            <div class="text-center p-8 border-r border-gray-100 last:border-0">
+                <h3 class="text-4xl font-black text-indigo-900 mb-2">3+</h3>
+                <p class="text-xs font-bold text-gray-500 uppercase tracking-widest">
+                    <span lang="zh">史丹福/港大學位</span>
+                    <span lang="en">Stanford/HKU Degrees</span>
+                </p>
+            </div>
+            <div class="text-center p-8 border-r border-gray-100 last:border-0">
+                <h3 class="text-4xl font-black text-indigo-900 mb-2">2022</h3>
+                <p class="text-xs font-bold text-gray-500 uppercase tracking-widest">
+                    <span lang="zh">行會召集人</span>
+                    <span lang="en">ExCo Convenor</span>
+                </p>
             </div>
         </div>
     </section>
 
-    <section id="about" class="py-32 bg-white relative">
-        <div class="container mx-auto px-8">
-            <div class="flex flex-col lg:flex-row gap-20 items-center">
-                <div class="lg:w-1/3">
-                    <h3 class="text-5xl font-black text-indigo-950 mb-6">關於<br>葉劉淑儀</h3>
-                    <div class="w-20 h-2 bg-yellow-600 mb-8"></div>
-                    <p class="text-gray-600 leading-loose mb-6">
-                        葉劉淑儀 (Regina Ip) 是香港當代政壇最具影響力的女性領袖之一。她以深厚的行政管理經驗、強韌的政治意志，以及對國際局勢的敏銳洞察力著稱。
+    <section id="about" class="py-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-8 flex flex-col lg:flex-row gap-20 items-center">
+            <div class="lg:w-1/2 relative">
+                <div class="absolute -top-10 -left-10 w-64 h-64 bg-indigo-100 rounded-full mix-blend-multiply opacity-70 animate-pulse"></div>
+                <div class="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border-[15px] border-white">
+                    <img src="https://via.placeholder.com/600x800/4B0082/FFFFFF?text=Regina+Ip+Portrait" alt="Regina Ip" class="w-full">
+                </div>
+            </div>
+            <div class="lg:w-1/2">
+                <h4 class="text-amber-600 font-black tracking-widest uppercase mb-4">The Iron Lady of Hong Kong</h4>
+                <h2 class="text-5xl font-black text-indigo-950 mb-8 leading-tight">
+                    <span lang="zh">以理性與勇氣<br>譜寫管治篇章</span>
+                    <span lang="en">Governance through<br>Reason & Courage</span>
+                </h2>
+                <div class="space-y-6 text-gray-600 bio-text">
+                    <div lang="zh">
+                        <p>葉劉淑儀 (Regina Ip) 生於新加坡華僑家庭，於聖士提反女子中學及香港大學畢業後，赴英國格拉斯哥大學與美國史丹福大學深造。自 1975 年投身政務主任 (AO) 以來，她見證並參與了香港回歸前後的每一個歷史時刻。</p>
+                        <p>身為前保安局局長，她在推動《基本法》第 23 條立法過程中展現了強韌的政治意志。雖然曾面臨社會爭論與起伏，但她選擇以研究精神重返政壇。創立智庫與政黨，旨在連結專業力量，讓香港在中產繁榮與國家安全之間取得完美平衡。</p>
+                    </div>
+                    <div lang="en">
+                        <p>Born into a Singaporean overseas Chinese family, Regina Ip was educated at St. Stephen's Girls' College and HKU, before pursuing advanced degrees at Glasgow and Stanford. Since joining as an AO in 1975, she has been a pivotal participant in Hong Kong's pre-and-post-handover history.</p>
+                        <p>As former Secretary for Security, she demonstrated iron-willed resolve during the Article 23 legislation process. Despite political turbulence, she returned to the arena with a renewed focus on policy research, founding Savantas and the NPP to bridge the gap between middle-class aspirations and national security.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="milestones" class="py-32 bg-indigo-950 text-white">
+        <div class="max-w-5xl mx-auto px-8">
+            <h2 class="text-4xl font-black mb-20 text-center uppercase tracking-tighter">
+                <span lang="zh">卓越公職生涯</span><span lang="en">Distinguished Career</span>
+            </h2>
+
+            <div class="relative border-l-2 border-white/10 pl-10 space-y-16">
+                <div class="relative">
+                    <div class="timeline-marker"></div>
+                    <span class="text-amber-500 font-black tracking-widest">1996 - 1998</span>
+                    <h3 class="text-2xl font-bold mt-2">
+                        <span lang="zh">人民入境事務處處長</span><span lang="en">Director of Immigration</span>
+                    </h3>
+                    <p class="text-gray-400 mt-4 max-w-2xl">
+                        <span lang="zh">香港歷史上首位女性紀律部隊首長，帶領部門確保 1997 回歸順利。</span>
+                        <span lang="en">The first woman to lead a disciplinary force in HK, ensuring a smooth transition during the 1997 Handover.</span>
                     </p>
-                    <div class="space-y-4">
-                        <div class="flex items-center space-x-3 text-indigo-900 font-bold">
-                            <i class="fas fa-check-circle"></i> <span>首位女性入境處處長</span>
-                        </div>
-                        <div class="flex items-center space-x-3 text-indigo-900 font-bold">
-                            <i class="fas fa-check-circle"></i> <span>首位女性保安局局長</span>
-                        </div>
-                        <div class="flex items-center space-x-3 text-indigo-900 font-bold">
-                            <i class="fas fa-check-circle"></i> <span>現任行政會議召集人</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="lg:w-2/3 grid md:grid-cols-2 gap-8">
-                    <div class="p-10 rounded-3xl bg-gray-50 hover-lift border-b-8 border-indigo-900 shadow-sm">
-                        <i class="fas fa-scale-balanced text-4xl text-yellow-600 mb-6"></i>
-                        <h4 class="text-2xl font-black mb-4">法治與安全</h4>
-                        <p class="text-gray-500 text-sm leading-relaxed">作為前保安局局長，深知穩定是繁榮的基石。致力於完善法律架構，保護香港市民的生命財產與國家安全。</p>
-                    </div>
-                    <div class="p-10 rounded-3xl bg-gray-50 hover-lift border-b-8 border-yellow-600 shadow-sm">
-                        <i class="fas fa-microchip text-4xl text-indigo-900 mb-6"></i>
-                        <h4 class="text-2xl font-black mb-4">經濟轉型</h4>
-                        <p class="text-gray-500 text-sm leading-relaxed">提倡香港由傳統金融向科技創新轉型。透過「匯賢智庫」，為政府提供具前瞻性的產業政策建議。</p>
-                    </div>
-                    <div class="p-10 rounded-3xl bg-gray-50 hover-lift border-b-8 border-yellow-600 shadow-sm">
-                        <i class="fas fa-graduation-cap text-4xl text-indigo-900 mb-6"></i>
-                        <h4 class="text-2xl font-black mb-4">教育與青年</h4>
-                        <p class="text-gray-500 text-sm leading-relaxed">關注中產階級壓力與青年上流機會。推動教育改革，提升香港新一代的全球競爭力與國民身份認同。</p>
-                    </div>
-                    <div class="p-10 rounded-3xl bg-indigo-900 hover-lift text-white shadow-xl">
-                        <i class="fas fa-globe-americas text-4xl text-yellow-500 mb-6"></i>
-                        <h4 class="text-2xl font-black mb-4">國際發聲</h4>
-                        <p class="text-gray-200 text-sm leading-relaxed">創辦「全球繁榮峰會」，在國際舞台上說好香港故事，連結東西方商業與文化交流。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="milestones" class="py-32 bg-indigo-50">
-        <div class="container mx-auto px-8">
-            <h2 class="text-center text-4xl font-black text-indigo-950 mb-20">從政半世紀：關鍵里程碑</h2>
-            
-            <div class="timeline-container clearfix">
-                <div class="timeline-line"></div>
-                
-                <div class="timeline-card left-card animate__animated animate__fadeInLeft">
-                    <div class="timeline-dot"></div>
-                    <div class="bg-white p-8 rounded-2xl shadow-lg">
-                        <span class="text-yellow-600 font-black text-xl italic">1975</span>
-                        <h4 class="text-xl font-bold text-indigo-950 my-2">加入政府辦公室</h4>
-                        <p class="text-gray-500">以政務主任 (AO) 身份開啟公僕生涯，先後於多個部門磨練，累積豐富行政經驗。</p>
-                    </div>
                 </div>
 
-                <div class="timeline-card right-card animate__animated animate__fadeInRight">
-                    <div class="timeline-dot"></div>
-                    <div class="bg-white p-8 rounded-2xl shadow-lg">
-                        <span class="text-yellow-600 font-black text-xl italic">1996</span>
-                        <h4 class="text-xl font-bold text-indigo-950 my-2">歷史性的女性領袖</h4>
-                        <p class="text-gray-500">獲任人民入境事務處處長，成為香港歷史上首位帶領紀律部隊的女性，展現巾幗不讓鬚眉的勇氣。</p>
-                    </div>
-                </div>
-
-                <div class="timeline-card left-card mt-24">
-                    <div class="timeline-dot"></div>
-                    <div class="bg-indigo-900 p-8 rounded-2xl shadow-lg text-white">
-                        <span class="text-yellow-400 font-black text-xl italic">1998</span>
-                        <h4 class="text-xl font-bold my-2">保安局局長</h4>
-                        <p class="text-indigo-100">出任首位女性保安局局長，處理居港權衝突及推動基本法第23條立法。面對巨大挑戰與社會爭論，始終守護法律尊嚴。</p>
-                    </div>
-                </div>
-
-                <div class="timeline-card right-card mt-24">
-                    <div class="timeline-dot"></div>
-                    <div class="bg-white p-8 rounded-2xl shadow-lg">
-                        <span class="text-yellow-600 font-black text-xl italic">2003 - 2006</span>
-                        <h4 class="text-xl font-bold text-indigo-950 my-2">史丹福再出發</h4>
-                        <p class="text-gray-500">遠赴美國史丹福大學進修，反思政治實踐。回港後創辦「匯賢智庫」，轉型為以研究與思想引領的政治家。</p>
-                    </div>
-                </div>
-
-                <div class="timeline-card left-card mt-24">
-                    <div class="timeline-dot"></div>
-                    <div class="bg-white p-8 rounded-2xl shadow-lg">
-                        <span class="text-yellow-600 font-black text-xl italic">2011</span>
-                        <h4 class="text-xl font-bold text-indigo-950 my-2">創立新民黨</h4>
-                        <p class="text-gray-500">成立以中產與專業人士為核心的政黨，定位為建設性的監督者與政策提案者。</p>
-                    </div>
-                </div>
-
-                <div class="timeline-card right-card mt-24">
-                    <div class="timeline-dot"></div>
-                    <div class="bg-indigo-900 p-8 rounded-2xl shadow-lg text-white border-4 border-yellow-500">
-                        <span class="text-yellow-400 font-black text-xl italic">2022 - Present</span>
-                        <h4 class="text-xl font-bold my-2">行會召集人</h4>
-                        <p class="text-indigo-100">獲李家超特首委任為行政會議召集人，站在香港管治體系的最前端，為特區擘劃長遠藍圖。</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="clear-both"></div>
-        </div>
-    </section>
-
-    <section id="party" class="py-32 bg-white">
-        <div class="container mx-auto px-8 text-center mb-16">
-            <h2 class="text-4xl font-black text-indigo-950">深耕智庫，務實從政</h2>
-            <p class="text-gray-500 mt-4 max-w-2xl mx-auto">政治不應只是口號，而是基於深厚研究的社會工程。</p>
-        </div>
-        
-        <div class="container mx-auto px-8 grid lg:grid-cols-2 gap-12">
-            <div class="group relative overflow-hidden rounded-[40px] bg-indigo-900 p-12 text-white transition-all duration-500 hover:shadow-2xl">
-                <div class="relative z-10">
-                    <h3 class="text-3xl font-bold mb-6 italic">新民黨 NPP</h3>
-                    <p class="text-indigo-100 mb-8 leading-relaxed">
-                        新民黨致力於團結中產、專業人士及青年一代。我們相信在穩定的大前提下推動改革，改善醫療、居住及教育條件。我們不是盲目的支持者，而是擁有專業眼光的合作夥伴。
+                <div class="relative">
+                    <div class="timeline-marker"></div>
+                    <span class="text-amber-500 font-black tracking-widest">1998 - 2003</span>
+                    <h3 class="text-2xl font-bold mt-2">
+                        <span lang="zh">保安局局長</span><span lang="en">Secretary for Security</span>
+                    </h3>
+                    <p class="text-gray-400 mt-4 max-w-2xl">
+                        <span lang="zh">任內處理無數國家安全與公共秩序事務。2003 年因 23 條立法引發爭議後辭任，赴史丹福進修。</span>
+                        <span lang="en">Oversaw national security and public order. Resigned in 2003 after the Article 23 controversy and pursued further studies at Stanford.</span>
                     </p>
-                    <ul class="space-y-4 text-sm font-medium">
-                        <li class="flex items-center gap-3"><i class="fas fa-angle-right text-yellow-500"></i> 多屆立法會直選席位</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-angle-right text-yellow-500"></i> 強大的地區服務網絡</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-angle-right text-yellow-500"></i> 培育眾多傑出政治新秀</li>
-                    </ul>
                 </div>
-                <div class="absolute top-0 right-0 p-8 opacity-20 transform translate-x-1/4 -translate-y-1/4">
-                    <i class="fas fa-users text-[15rem]"></i>
-                </div>
-            </div>
 
-            <div class="group relative overflow-hidden rounded-[40px] bg-gray-100 p-12 text-indigo-950 transition-all duration-500 hover:shadow-2xl">
-                <div class="relative z-10">
-                    <h3 class="text-3xl font-bold mb-6 italic">匯賢智庫 Savantas</h3>
-                    <p class="text-gray-600 mb-8 leading-relaxed">
-                        作為香港頂尖的政策智囊，我們匯聚學術界與商界領袖，針對高新科技、人口政策及對外貿易進行深度分析。我們為政府提供的不僅是意見，更是可落地的執行方案。
+                <div class="relative">
+                    <div class="timeline-marker"></div>
+                    <span class="text-amber-500 font-black tracking-widest">2011 - Present</span>
+                    <h3 class="text-2xl font-bold mt-2">
+                        <span lang="zh">新民黨主席 / 立法會議員</span><span lang="en">Chair of NPP / LegCo Member</span>
+                    </h3>
+                    <p class="text-gray-400 mt-4 max-w-2xl">
+                        <span lang="zh">連續多屆以高票當選立法會議員。創立新民黨，代表中產及建制派理性的政治聲音。</span>
+                        <span lang="en">Elected to LegCo with high vote counts for multiple terms. Founded NPP to represent rational voices of the middle class and pro-establishment.</span>
                     </p>
-                    <ul class="space-y-4 text-sm font-bold">
-                        <li class="flex items-center gap-3 text-indigo-900"><i class="fas fa-circle-nodes text-yellow-600"></i> 定期發表產業發展報告</li>
-                        <li class="flex items-center gap-3 text-indigo-900"><i class="fas fa-circle-nodes text-yellow-600"></i> 舉辦高層次政策研討會</li>
-                        <li class="flex items-center gap-3 text-indigo-900"><i class="fas fa-circle-nodes text-yellow-600"></i> 跨領域的專家顧問團隊</li>
-                    </ul>
                 </div>
-                <div class="absolute top-0 right-0 p-8 opacity-10 transform translate-x-1/4 -translate-y-1/4">
-                    <i class="fas fa-brain text-[15rem]"></i>
+
+                <div class="relative">
+                    <div class="timeline-marker"></div>
+                    <span class="text-amber-500 font-black tracking-widest">2022 - Present</span>
+                    <h3 class="text-2xl font-bold mt-2">
+                        <span lang="zh">行政會議召集人</span><span lang="en">Convenor of Executive Council</span>
+                    </h3>
+                    <p class="text-gray-400 mt-4 max-w-2xl">
+                        <span lang="zh">出任特區政府最高諮詢機構召集人，成為回歸後首位擔任此職的女性。</span>
+                        <span lang="en">Appointed as the head of the top advisory body, the first woman to hold this post since the Handover.</span>
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="quote" class="py-24 bg-yellow-600 text-white">
-        <div class="container mx-auto px-8 text-center">
-            <i class="fas fa-quote-left text-5xl mb-8 opacity-50"></i>
-            <div class="max-w-4xl mx-auto">
-                <h3 id="reginaQuote" class="text-3xl md:text-4xl font-light italic leading-snug mb-12 animate__animated">
-                    「政治人物最重要的品質是勇氣與誠信。在逆境中堅持正確的原則，遠比隨波逐流更重要。」
-                </h3>
-                <div class="flex items-center justify-center space-x-6">
-                    <button onclick="changeQuote()" class="w-14 h-14 border-2 border-white rounded-full hover:bg-white hover:text-yellow-600 transition flex items-center justify-center">
-                        <i class="fas fa-redo"></i>
-                    </button>
-                    <span class="text-sm font-bold uppercase tracking-widest">— 葉劉淑儀觀點 —</span>
+    <section id="policy" class="py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-black text-indigo-950 mb-4 tracking-tighter">
+                    <span lang="zh">政策觀點</span><span lang="en">Policy Vision</span>
+                </h2>
+                <div class="w-24 h-2 bg-amber-600 mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="policy-card bg-white p-10 rounded-2xl shadow-sm">
+                    <i class="fas fa-chart-line text-amber-600 text-3xl mb-6"></i>
+                    <h4 class="text-xl font-black mb-4">
+                        <span lang="zh">經濟繁榮</span><span lang="en">Economic Prosperity</span>
+                    </h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        <span lang="zh">推動高新科技轉型，鞏固香港作為國際金融與人才中心的地位，並深化「一帶一路」戰略合作。</span>
+                        <span lang="en">Advancing tech-innovation while solidifying HK's status as a global financial and talent hub through "Belt & Road" collaborations.</span>
+                    </p>
+                </div>
+                <div class="policy-card bg-white p-10 rounded-2xl shadow-sm">
+                    <i class="fas fa-home text-amber-600 text-3xl mb-6"></i>
+                    <h4 class="text-xl font-black mb-4">
+                        <span lang="zh">民生與住房</span><span lang="en">Housing & Livelihood</span>
+                    </h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        <span lang="zh">提倡大幅增加土地供應，優化公私營房屋比例，解決中產與基層的居住難題。</span>
+                        <span lang="en">Advocating for increased land supply and optimizing public-private housing ratios to solve housing crises for all sectors.</span>
+                    </p>
+                </div>
+                <div class="policy-card bg-white p-10 rounded-2xl shadow-sm">
+                    <i class="fas fa-comments text-amber-600 text-3xl mb-6"></i>
+                    <h4 class="text-xl font-black mb-4">
+                        <span lang="zh">講好香港故事</span><span lang="en">Telling HK Stories</span>
+                    </h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        <span lang="zh">透過「全球繁榮峰會」等平台，主動向世界展示香港在法治下的真實繁榮與活力。</span>
+                        <span lang="en">Actively showcasing HK's prosperity and vitality under the rule of law through platforms like the Global Prosperity Summit.</span>
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-32 bg-gray-900 text-white">
-        <div class="container mx-auto px-8 grid lg:grid-cols-2 gap-20">
+    <section id="contact" class="py-32">
+        <div class="max-w-7xl mx-auto px-8 grid lg:grid-cols-2 gap-16">
             <div>
-                <h2 class="text-5xl font-black mb-12">與我們交流<br><span class="text-yellow-500">CONNECT</span></h2>
+                <h2 class="text-5xl font-black text-indigo-950 mb-8 tracking-tighter">
+                    <span lang="zh">保持聯絡</span><span lang="en">Connect With Us</span>
+                </h2>
                 <div class="space-y-10">
-                    <div class="flex items-start gap-6">
-                        <div class="w-14 h-14 bg-indigo-800 rounded-2xl flex items-center justify-center shrink-0">
-                            <i class="fas fa-building-columns text-yellow-500"></i>
+                    <div class="flex gap-6">
+                        <div class="w-16 h-16 bg-indigo-900 rounded-full flex items-center justify-center text-amber-500 shrink-0">
+                            <i class="fas fa-map-pin text-xl"></i>
                         </div>
                         <div>
-                            <h5 class="font-bold text-xl">灣仔總辦事處</h5>
-                            <p class="text-gray-400 mt-2">香港灣仔軒尼詩道139號 中國海外大廈11樓D-F室</p>
+                            <p class="font-black text-indigo-950">
+                                <span lang="zh">辦事處地址</span><span lang="en">Office Address</span>
+                            </p>
+                            <p class="text-gray-500">
+                                <span lang="zh">香港灣仔軒尼詩道139號 中國海外大廈11樓D-F室</span>
+                                <span lang="en">Rm D-F, 11/F, China Overseas Building, 139 Hennessy Rd, Wan Chai</span>
+                            </p>
                         </div>
                     </div>
-                    <div class="flex items-start gap-6">
-                        <div class="w-14 h-14 bg-indigo-800 rounded-2xl flex items-center justify-center shrink-0">
-                            <i class="fas fa-phone-volume text-yellow-500"></i>
+                    <div class="flex gap-6">
+                        <div class="w-16 h-16 bg-indigo-900 rounded-full flex items-center justify-center text-amber-500 shrink-0">
+                            <i class="fas fa-phone-alt text-xl"></i>
                         </div>
                         <div>
-                            <h5 class="font-bold text-xl">媒體與公眾諮詢</h5>
-                            <p class="text-gray-400 mt-2">電話: 3100 0079 | 傳真: 3100 0087</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-6">
-                        <div class="w-14 h-14 bg-indigo-800 rounded-2xl flex items-center justify-center shrink-0">
-                            <i class="fas fa-envelope-open-text text-yellow-500"></i>
-                        </div>
-                        <div>
-                            <h5 class="font-bold text-xl">官方電郵</h5>
-                            <p class="text-gray-400 mt-2">iplau@reginaip.hk</p>
+                            <p class="font-black text-indigo-950">
+                                <span lang="zh">電話 / 傳真</span><span lang="en">Phone / Fax</span>
+                            </p>
+                            <p class="text-gray-500">T: 3100 0079 | F: 3100 0087</p>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="bg-white/5 p-12 rounded-[50px] backdrop-blur-md border border-white/10">
-                <form class="space-y-8">
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-widest text-yellow-600 mb-2">姓名 Full Name</label>
-                            <input type="text" class="w-full bg-transparent border-b border-gray-700 py-3 focus:border-yellow-500 outline-none transition">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-widest text-yellow-600 mb-2">電郵 Email</label>
-                            <input type="email" class="w-full bg-transparent border-b border-gray-700 py-3 focus:border-yellow-500 outline-none transition">
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-widest text-yellow-600 mb-2">關注議題 Issue of Interest</label>
-                        <select class="w-full bg-transparent border-b border-gray-700 py-3 focus:border-yellow-500 outline-none transition text-gray-400">
-                            <option>政策建議 Policy Suggestion</option>
-                            <option>地區求助 Community Assistance</option>
-                            <option>加入智庫 Join Think-tank</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-widest text-yellow-600 mb-2">留言 Message</label>
-                        <textarea rows="4" class="w-full bg-transparent border border-gray-700 rounded-xl p-4 focus:border-yellow-500 outline-none transition"></textarea>
-                    </div>
-                    <button class="w-full py-5 bg-yellow-600 rounded-2xl font-black text-white hover:bg-yellow-500 hover:shadow-2xl hover:scale-[1.02] transition-all">提交資訊 SUBMIT</button>
+            <div class="bg-indigo-900 p-12 rounded-[2rem] shadow-2xl text-white">
+                <form class="space-y-6">
+                    <input type="text" placeholder="Name 姓名" class="w-full bg-white/10 border border-white/20 p-4 rounded-xl focus:border-amber-500 outline-none">
+                    <input type="email" placeholder="Email 電郵" class="w-full bg-white/10 border border-white/20 p-4 rounded-xl focus:border-amber-500 outline-none">
+                    <textarea placeholder="Message 留言內容" rows="4" class="w-full bg-white/10 border border-white/20 p-4 rounded-xl focus:border-amber-500 outline-none"></textarea>
+                    <button class="w-full bg-amber-600 py-4 rounded-xl font-black uppercase tracking-widest hover:bg-amber-500 transition">
+                        <span lang="zh">發送消息</span><span lang="en">Send Message</span>
+                    </button>
                 </form>
             </div>
         </div>
     </section>
 
-    <footer class="bg-black py-20 text-gray-500">
-        <div class="container mx-auto px-8 flex flex-col md:flex-row justify-between items-center">
-            <div class="text-center md:text-left mb-8 md:mb-0">
-                <p class="text-white font-bold tracking-widest">REGINA IP OFFICIAL WEBSITE</p>
-                <p class="text-xs mt-2 uppercase">© 2026 葉劉淑儀個人辦事處. All Rights Reserved.</p>
+    <footer class="py-20 text-white/40">
+        <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="text-center md:text-left">
+                <p class="text-white font-black text-2xl tracking-tighter mb-2">REGINA IP</p>
+                <p class="text-xs uppercase tracking-widest">© 2026 Office of Regina Ip Lau Suk Yee. All Rights Reserved.</p>
             </div>
-            <div class="flex space-x-8 text-xl">
-                <a href="#" class="hover:text-yellow-500 transition"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="hover:text-yellow-500 transition"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="hover:text-yellow-500 transition"><i class="fab fa-x-twitter"></i></a>
-                <a href="#" class="hover:text-yellow-500 transition"><i class="fab fa-youtube"></i></a>
+            <div class="flex gap-8 text-xl">
+                <a href="#" class="hover:text-amber-500 transition"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="hover:text-amber-500 transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-amber-500 transition"><i class="fab fa-x-twitter"></i></a>
             </div>
         </div>
     </footer>
 
     <script>
-        // 滾動監聽：導航欄效果
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('topNav');
-            if (window.scrollY > 80) {
-                nav.classList.add('py-3', 'shadow-2xl');
-                nav.classList.remove('py-5');
+        function toggleLang() {
+            const body = document.body;
+            const zhBtn = document.getElementById('zh-btn');
+            const enBtn = document.getElementById('en-btn');
+            
+            if (body.classList.contains('lang-en')) {
+                body.classList.remove('lang-en');
+                zhBtn.classList.add('lang-active');
+                enBtn.classList.remove('lang-active');
             } else {
-                nav.classList.remove('py-3', 'shadow-2xl');
-                nav.classList.add('py-5');
+                body.classList.add('lang-en');
+                enBtn.classList.add('lang-active');
+                zhBtn.classList.remove('lang-active');
             }
-        });
-
-        // 隨機金句數據庫
-        const quotes = [
-            "「政治人物最重要的品質是勇氣與誠信。在逆境中堅持正確的原則，遠比隨波逐流更重要。」",
-            "「香港的核心競爭力在於法治與人才，我們必須在國際舞台上昂首挺胸，講好我們的故事。」",
-            "「年輕人的機會，取決於我們今天為這座城市種下的科技與教育種子。」",
-            "「務實的管治不需要花言巧語，只需要對數據的尊重和對市民疾苦的感同身受。」",
-            "「行公義，好憐憫，存謙卑的心 —— 這是我從政路上的北極星。」"
-        ];
-
-        function changeQuote() {
-            const el = document.getElementById('reginaQuote');
-            el.classList.add('animate__fadeOut');
-            setTimeout(() => {
-                const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-                el.innerText = randomQuote;
-                el.classList.remove('animate__fadeOut');
-                el.classList.add('animate__fadeIn');
-            }, 500);
         }
-
-        // 平滑滾動與簡單初始化
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
     </script>
 </body>
 </html>
