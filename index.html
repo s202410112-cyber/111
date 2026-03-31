@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regina Ip Lau Suk Yee | 葉劉淑儀個人官方網站</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --brand-purple: #4B0082;
+            --brand-gold: #D4AF37;
+            --brand-dark: #1a1a1a;
+            --glass-white: rgba(255, 255, 255, 0.9);
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #fcfcfc;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: var(--brand-purple); border-radius: 10px; }
+
+        /* Typography & Effects */
+        .text-gradient {
+            background: linear-gradient(45deg, var(--brand-purple), #8a2be2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-regina-purple { background-color: var(--brand-purple); }
+        .text-regina-gold { color: var(--brand-gold); }
+
+        .hero-mask {
+            background: linear-gradient(135deg, rgba(75, 0, 130, 0.95) 0%, rgba(26, 26, 26, 0.8) 100%);
+        }
+
+        /* Timeline Styles */
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--brand-gold);
+            top: 0; bottom: 0; left: 20px;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Navigation glassmorphism */
+        nav.scrolled {
+            background: var(--glass-white);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Section Spacing */
+        section { padding: 100px 0; }
+        
+        @media (max-width: 768px) {
+            .timeline-item::after { left: 15px; }
+            section { padding: 60px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-10 h-10 bg-regina-purple rounded-full flex items-center justify-center mr-3">
+                    <span class="text-white font-bold">R</span>
+                </div>
+                <span class="text-xl font-black tracking-tighter text-regina-purple md:text-2xl uppercase">Regina Ip <span class="font-light text-gray-500">| 葉劉淑儀</span></span>
+            </div>
+            
+            <div class="hidden md:flex space-x-8 items-center font-medium">
+                <a href="#home" class="hover:text-purple-700 transition">首頁</a>
+                <a href="#biography" class="hover:text-purple-700 transition">個人經歷</a>
+                <a href="#career" class="hover:text-purple-700 transition">公職成就</a>
+                <a href="#vision" class="hover:text-purple-700 transition">政治理念</a>
+                <a href="#contact" class="bg-regina-purple text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition shadow-lg">聯絡辦事處</a>
+            </div>
+
+            <div class="md:hidden text-2xl text-regina-purple">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="relative h-screen flex items-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=1920" class="w-full h-full object-cover" alt="Hong Kong Skyline">
+            <div class="absolute inset-0 hero-mask"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 text-white">
+            <div class="max-w-3xl animate__animated animate__fadeInUp">
+                <span class="inline-block px-4 py-1 border border-regina-gold text-regina-gold rounded-full mb-6 text-sm font-bold tracking-widest uppercase">現任行政會議召集人</span>
+                <h1 class="text-5xl md:text-8xl font-black mb-6 leading-tight">
+                    堅定領航<br><span class="text-regina-gold">同行</span>繁榮
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed max-w-2xl">
+                    從入境處處長到行政會議召集人，我始終致力於維護香港的穩定與進步。以專業行政經驗，連結中產聲音，為下一代開拓更廣闊的未來。
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#biography" class="bg-regina-gold text-white px-10 py-4 rounded-full font-bold text-center hover:scale-105 transition shadow-2xl">了解葉太</a>
+                    <a href="#vision" class="border border-white text-white px-10 py-4 rounded-full font-bold text-center hover:bg-white hover:text-purple-900 transition">閱讀政策觀點</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-white opacity-50">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </header>
+
+    <section class="bg-white py-12 shadow-sm relative z-20 -mt-10 mx-6 rounded-xl md:mx-auto md:max-w-6xl">
+        <div class="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+                <p class="text-4xl font-black text-regina-purple">1975</p>
+                <p class="text-gray-500 text-sm mt-1 italic">投身公職服務</p>
+            </div>
+            <div>
+                <p class="text-4xl font-black text-regina-purple">1st</p>
+                <p class="text-gray-500 text-sm mt-1 italic">女性保安局局長</p>
+            </div>
+            <div>
+                <p class="text-4xl font-black text-regina-purple">17+</p>
+                <p class="text-gray-500 text-sm mt-1 italic">載立法會經驗</p>
+            </div>
+            <div>
+                <p class="text-4xl font-black text-regina-purple">2011</p>
+                <p class="text-gray-500 text-sm mt-1 italic">創立新民黨</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="biography" class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row gap-16 items-center">
+            <div class="w-full md:w-1/2">
+                <div class="relative">
+                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-regina-gold opacity-20 rounded-full"></div>
+                    <h2 class="text-4xl font-black mb-8 relative z-10 text-regina-purple uppercase tracking-tight">背景與初心<br>Background</h2>
+                </div>
+                <div class="space-y-6 text-gray-700 leading-loose">
+                    <p>
+                        葉劉淑儀（Regina Ip），祖籍廣東南海，生於新加坡華僑家庭。畢業於香港大學文學院，隨後負笈英國格拉斯哥大學及美國史丹福大學深造，獲碩士學位。
+                    </p>
+                    <p>
+                        1975 年加入港英政府擔任政務主任（AO）。在長達五十年的公職生涯中，她以果斷、實幹的風格聞名。她是香港歷史上首位出掌紀律部隊（入境事務處）的女性，亦是首位女性保安局局長及首位女性行政會議召集人。
+                    </p>
+                    <p>
+                        身為基督徒，她始終秉持僕人領導的精神。儘管政治生涯曾經歷風雨與爭議，但她選擇直面挑戰，透過不斷進修與創辦智庫，將個人經驗轉化為服務社會的動力。
+                    </p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 grid grid-cols-2 gap-4">
+                <div class="space-y-4">
+                    <div class="bg-gray-200 h-64 rounded-2xl overflow-hidden shadow-inner">
+                        <img src="https://via.placeholder.com/400x600/4B0082/FFFFFF?text=Education" class="w-full h-full object-cover" alt="Edu">
+                    </div>
+                    <div class="bg-regina-purple p-6 rounded-2xl text-white">
+                        <h4 class="font-bold text-regina-gold mb-2">學術背景</h4>
+                        <p class="text-sm">港大文學院、格拉斯哥大學、史丹福大學管理與東亞研究碩士。</p>
+                    </div>
+                </div>
+                <div class="space-y-4 pt-12">
+                    <div class="bg-regina-gold p-6 rounded-2xl text-white">
+                        <h4 class="font-bold mb-2">家庭背景</h4>
+                        <p class="text-sm">祖籍廣東南海，成長於重視多元與國際視野的華僑家庭。</p>
+                    </div>
+                    <div class="bg-gray-200 h-64 rounded-2xl overflow-hidden shadow-inner">
+                        <img src="https://via.placeholder.com/400x600/D4AF37/FFFFFF?text=Legacy" class="w-full h-full object-cover" alt="Legacy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="career" class="bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-5xl font-black text-regina-purple mb-4 tracking-tighter">卓越公職路</h2>
+                <div class="w-24 h-1 bg-regina-gold mx-auto"></div>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-12">
+                <div class="relative pl-12 timeline-item">
+                    <div class="absolute left-0 top-0 w-10 h-10 bg-regina-purple rounded-full flex items-center justify-center z-10 border-4 border-white">
+                        <i class="fas fa-star text-white text-xs"></i>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border-l-8 border-regina-purple">
+                        <span class="text-regina-gold font-bold">1996 - 1998</span>
+                        <h3 class="text-xl font-bold mb-3">首位女性紀律部隊首長</h3>
+                        <p class="text-gray-600">擔任人民入境事務處處長，展現卓越領導力，帶領部門平穩過渡回歸時期。</p>
+                    </div>
+                </div>
+
+                <div class="relative pl-12 timeline-item">
+                    <div class="absolute left-0 top-0 w-10 h-10 bg-regina-purple rounded-full flex items-center justify-center z-10 border-4 border-white">
+                        <i class="fas fa-shield-alt text-white text-xs"></i>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border-l-8 border-regina-purple">
+                        <span class="text-regina-gold font-bold">1998 - 2003</span>
+                        <h3 class="text-xl font-bold mb-3">保安局局長</h3>
+                        <p class="text-gray-600">負責國家安全、治安及入境事務。期間推動基本法 23 條立法，雖面對巨大壓力與爭議，仍堅持法律專業與國家安全之核心價值。</p>
+                    </div>
+                </div>
+
+                <div class="relative pl-12 timeline-item">
+                    <div class="absolute left-0 top-0 w-10 h-10 bg-regina-purple rounded-full flex items-center justify-center z-10 border-4 border-white">
+                        <i class="fas fa-user-tie text-white text-xs"></i>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border-l-8 border-regina-purple">
+                        <span class="text-regina-gold font-bold">2008 - 2025</span>
+                        <h3 class="text-xl font-bold mb-3">立法會議員 (多屆連任)</h3>
+                        <p class="text-gray-600">重返政壇後，代表香港島及香港島西，長期關注教育、中產福利、外貿經濟及國家主權事務。</p>
+                    </div>
+                </div>
+
+                <div class="relative pl-12 timeline-item">
+                    <div class="absolute left-0 top-0 w-10 h-10 bg-regina-purple rounded-full flex items-center justify-center z-10 border-4 border-white">
+                        <i class="fas fa-landmark text-white text-xs"></i>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border-l-8 border-regina-purple">
+                        <span class="text-regina-gold font-bold">2022 - 至今</span>
+                        <h3 class="text-xl font-bold mb-3">行政會議召集人</h3>
+                        <p class="text-gray-600">獲行政長官委任，成為回歸後首位女性行會召集人，協助政府制定長期發展藍圖。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="vision" class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-black text-regina-purple mb-4 tracking-tighter">社會貢獻與願景</h2>
+            <p class="text-gray-500">除了議會工作，透過智庫與協會，葉太積極從多層次服務香港</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="card-hover bg-white p-10 rounded-3xl border border-gray-100 shadow-xl text-center">
+                <div class="w-20 h-20 bg-purple-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-users-rectangle text-3xl text-regina-purple"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-4">新民黨主席</h4>
+                <p class="text-gray-600 text-sm leading-relaxed">定位專業建制與中產橋樑，提倡理性參政，為香港培育政治新秀與專業人才。</p>
+            </div>
+
+            <div class="card-hover bg-white p-10 rounded-3xl border border-gray-100 shadow-xl text-center">
+                <div class="w-20 h-20 bg-yellow-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-lightbulb text-3xl text-regina-gold"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-4">匯賢智庫</h4>
+                <p class="text-gray-600 text-sm leading-relaxed">集結專家智慧，針對經濟、教育、公共政策提供深度分析與可行建議。</p>
+            </div>
+
+            <div class="card-hover bg-white p-10 rounded-3xl border border-gray-100 shadow-xl text-center">
+                <div class="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-ship text-3xl text-blue-800"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-4">海上絲綢之路協會</h4>
+                <p class="text-gray-600 text-sm leading-relaxed">推廣國家「一帶一路」倡議，協助香港年輕人與商界捕捉地緣政治下的新機遇。</p>
+            </div>
+        </div>
+
+        <div class="mt-20 bg-regina-purple rounded-3xl p-12 text-center text-white relative overflow-hidden">
+            <div class="absolute top-0 right-0 opacity-10">
+                <i class="fas fa-quote-right text-9xl"></i>
+            </div>
+            <p class="text-2xl md:text-3xl font-light italic leading-relaxed relative z-10">
+                「在紛擾的政治環境中，我始終相信專業與理性。<br>我們要做的，是為香港建立一個更公平、更具國際競爭力的未來。」
+            </p>
+        </div>
+    </section>
+
+    <section class="bg-gray-100 py-16">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-10">
+                <div class="md:w-1/3">
+                    <h3 class="text-2xl font-black text-gray-800 mb-4 italic">「鐵娘子」的真面目</h3>
+                    <p class="text-gray-600 leading-relaxed italic">
+                        外界常以「威權」、「強硬」形容葉太，支持者則視之為「魄力」與「果斷」。對她而言，所有的決定都源於對法治與程序正義的尊重。
+                    </p>
+                </div>
+                <div class="md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white p-6 rounded-xl shadow-sm flex items-center gap-4">
+                        <i class="fas fa-comment-dots text-regina-gold"></i>
+                        <span class="text-sm font-medium">從容面對爭議，在溝通中尋求共識。</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm flex items-center gap-4">
+                        <i class="fas fa-glasses text-regina-gold"></i>
+                        <span class="text-sm font-medium">重視研究數據，而非空談口號。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container mx-auto px-6">
+        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
+            <div class="md:w-1/2 p-12 bg-regina-purple text-white">
+                <h2 class="text-3xl font-bold mb-8">聯絡辦事處</h2>
+                <div class="space-y-8">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0">
+                            <i class="fas fa-map-marker-alt text-regina-gold"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold">辦事處地址</p>
+                            <p class="text-gray-300">香港灣仔軒尼詩道139號<br>中國海外大廈11樓D-F室</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0">
+                            <i class="fas fa-phone text-regina-gold"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold">聯絡電話</p>
+                            <p class="text-gray-300">3100 0079</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0">
+                            <i class="fas fa-envelope text-regina-gold"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold">電子郵件</p>
+                            <p class="text-gray-300">iplau@reginaip.hk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 flex gap-4">
+                    <a href="#" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-regina-gold transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-regina-gold transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-regina-gold transition"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="md:w-1/2 p-12">
+                <form class="space-y-6">
+                    <h3 class="text-xl font-bold text-gray-800">公眾留言 / 諮詢</h3>
+                    <div>
+                        <label class="block text-sm text-gray-500 mb-2">姓名</label>
+                        <input type="text" class="w-full border-b border-gray-300 py-2 focus:border-regina-purple outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-500 mb-2">聯絡電話</label>
+                        <input type="tel" class="w-full border-b border-gray-300 py-2 focus:border-regina-purple outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-500 mb-2">留言內容</label>
+                        <textarea rows="4" class="w-full border border-gray-200 rounded-lg p-3 focus:border-regina-purple outline-none transition"></textarea>
+                    </div>
+                    <button class="w-full bg-regina-purple text-white py-4 rounded-xl font-bold shadow-lg hover:shadow-2xl transition">提交諮詢</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-500 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-6">
+                <p class="text-white font-bold text-lg">葉劉淑儀 Regina Ip Lau Suk Yee</p>
+                <p class="text-sm">行政會議召集人 · 新民黨主席</p>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-xs space-y-2">
+                <p>© 2026 Regina Ip Official Personal Website. 版權所有。</p>
+                <p>本網站內容旨在介紹葉劉淑儀女士之公職生涯與政策願景。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll navigation effect
+        window.onscroll = function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+                nav.classList.remove('py-4');
+                nav.classList.add('py-2');
+            } else {
+                nav.classList.remove('scrolled');
+                nav.classList.add('py-4');
+                nav.classList.remove('py-2');
+            }
+        };
+
+        // Simple Mobile Menu (Log to console as placeholder)
+        document.querySelector('.md\\:hidden').addEventListener('click', () => {
+            alert('Mobile Menu functionality - In development');
+        });
+    </script>
+</body>
+</html>
